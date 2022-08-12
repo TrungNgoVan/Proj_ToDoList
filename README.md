@@ -1,6 +1,3 @@
-# Proj_ToDoList
-Project To do list console (OOP easy version)
-
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
