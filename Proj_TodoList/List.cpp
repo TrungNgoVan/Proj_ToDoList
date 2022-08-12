@@ -65,15 +65,14 @@ void List::deleteToDo(string toDo) {
 		cout << "You don't have this work on your to do list yet!\n";
 		system("pause");
 	}
-		
 	else {
 		for (int i = idx; i < this->count - 1; i++) {
 			this->data[i] = this->data[i + 1];
 			this->check[i] = this->check[i + 1];
 			this->data.pop_back();
 			this->check.pop_back();
-			this->count--;
 		}
+		this->count--;
 	}
 }
 
