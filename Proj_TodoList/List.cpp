@@ -34,9 +34,9 @@ void List::init() {
 }
 
 void List::showList() {
+	cout << "\x1B[2J\x1B[H";
 	cout << "=== TO DO LIST by nvtrung ===\n";
-	if (this->data.size() != 0) {
-		cout << "\x1B[2J\x1B[H";
+	if (this->count != 0) {
 		for (int i = 0; i < this->count; i++) {
 			cout << i + 1 << ": " << this->data[i];
 			if (this->check[i]) cout << " (Done)\n";
@@ -44,8 +44,7 @@ void List::showList() {
 		}
 	}
 	else {
-		cout << "\x1B[2J\x1B[H";
-		cout << "You don't have any work to do" << endl;
+		cout << "You don't have any work to do!!!" << endl;
 	}
 	system("pause");
 }
@@ -61,15 +60,19 @@ void List::deleteToDo(string toDo) {
 	for (int i = 0; i < this->count; i++) {
 		if (this->data[i] == toDo) idx = i;
 	}
-	if (idx == -1) 
+	if (idx == -1)
+	{
 		cout << "You don't have this work on your to do list yet!\n";
+		system("pause");
+	}
+		
 	else {
 		for (int i = idx; i < this->count - 1; i++) {
 			this->data[i] = this->data[i + 1];
 			this->check[i] = this->check[i + 1];
 			this->data.pop_back();
 			this->check.pop_back();
-			count--;
+			this->count--;
 		}
 	}
 }

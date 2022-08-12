@@ -1,6 +1,2 @@
-﻿  List.cpp
-  Menu.cpp
-  Proj_TodoList.cpp
-  Generating Code...
-  LINK : C:\Users\trung\Source\Repos\Proj_ToDoList\x64\Debug\Proj_TodoList.exe not found or not built by the last incremental link; performing full link
-  Proj_TodoList.vcxproj -> C:\Users\trung\Source\Repos\Proj_ToDoList\x64\Debug\Proj_TodoList.exe
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(1094,5): error MSB6006: "link.exe" exited with code 1168.
+LINK : fatal error LNK1168: cannot open C:\Users\trung\source\repos\Proj_ToDoList\x64\Debug\Proj_TodoList.exe for writing
