@@ -12,28 +12,25 @@ int main() {
         cout << "Selection: ";
         cin >> choice;
         cin.ignore();
-        //if (choice > 1 && choice < 5) listToDo.showList();
+        if (choice > 1 && choice < 5) {
+            cout << "\x1B[2J\x1B[H";
+            listToDo.showList();
+        }
         switch (choice) {
         case 1:
             listToDo.showList();
             break;
         case 2:
-            cout << "\x1B[2J\x1B[H";
-            listToDo.showList();
             cout << "Enter the work you to do: ";
             getline(cin, temp);
             listToDo.addToDo(temp);
             break;
         case 3:
-            cout << "\x1B[2J\x1B[H";
-            listToDo.showList();
             cout << "Enter the work you've done: ";
             getline(cin, temp);
             listToDo.doneToDo(temp);
             break;
         case 4:
-            cout << "\x1B[2J\x1B[H";
-            listToDo.showList();
             cout << "Enter the work you want ignore: ";
             getline(cin, temp);
             listToDo.deleteToDo(temp);
