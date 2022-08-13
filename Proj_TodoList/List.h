@@ -9,7 +9,6 @@ class List {
 private:// Attibutes
 	vector<string> data;
 	vector<bool> check;
-	int count = 0;
 public: // Constructor - Destructor
 	List();
 	List(vector<string>);
@@ -25,6 +24,7 @@ public: // Method
 	void init();
 	void showList();
 	void addToDo(string);
-	void deleteToDo(string);
-	void doneToDo(string);
+	void doneToDo(int);
+	void deleteToDo(int);
+	int getSize();
 };

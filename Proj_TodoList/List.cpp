@@ -35,53 +35,48 @@ void List::init() {
 
 void List::showList() {
 	cout << "\x1B[2J\x1B[H";
-	cout << "=== TO DO LIST by nvtrung ===\n";
-	if (this->count != 0) {
-		for (int i = 0; i < this->count; i++) {
-			cout << i + 1 << ": " << this->data[i];
-			if (this->check[i]) cout << " (Done)\n";
-			else cout << "\n";
-		}
+	cout << "=== TO DO LIST ===\n\n";
+	for (int i = 0; i < this->getSize() ; i++) {
+		cout << i + 1 << ": " << this->data[i];
+		if (this->check[i]) cout << setw(15) << " (Done)\n";
+		else cout << "\n";
 	}
-	else {
-		cout << "You don't have any work to do!!!" << endl;
-	}
+	cout << "\n";
 	system("pause");
 }
 
 void List::addToDo(string toDo) {
 	this->data.push_back(toDo);
 	this->check.push_back(false);
-	this->count++;
 }
 
-void List::deleteToDo(string toDo) {
-	int idx = -1;
-	for (int i = 0; i < this->count; i++) {
-		if (this->data[i] == toDo) idx = i;
-	}
-	if (idx == -1)
+void List::doneToDo(int idx) {
+	if (idx < 1 || idx > this->getSize())
 	{
 		cout << "You don't have this work on your to do list yet!\n";
 		system("pause");
 	}
 	else {
-		for (int i = idx; i < this->count - 1; i++) {
-			this->data[i] = this->data[i + 1];
-			this->check[i] = this->check[i + 1];
-			this->data.pop_back();
-			this->check.pop_back();
-		}
-		this->count--;
+		this->check[idx - 1] = true;
 	}
 }
 
-void List::doneToDo(string toDo) {
-	for (int i = 0; i < this->count; i++) {
-		if (this->data[i] == toDo) {
-			this->check[i] = true;
-		}
+void List::deleteToDo(int idx) {
+	
+	if (idx < 1 || idx > this->getSize())
+	{
+		cout << "You don't have this work on your to do list yet!\n";
+		system("pause");
+	}
+	else {
+		vector<string>::iterator tmp1 = this->data.begin() + idx - 1;
+		data.erase(tmp1);
+		vector<bool>::iterator tmp2 = this->check.begin() + idx - 1;
+		check.erase(tmp2);
 	}
 }
 
+int List::getSize() {
+	return this->data.size();
+}
 

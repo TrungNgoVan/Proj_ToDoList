@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
 	List listToDo;
-    int choice;
+    int choice, buffer;
     string temp;
     do {
         showMenu();
@@ -13,31 +13,61 @@ int main() {
         cin >> choice;
         cin.ignore();
         if (choice > 1 && choice < 5) {
-            cout << "\x1B[2J\x1B[H";
-            listToDo.showList();
+            if (listToDo.getSize() != 0) {
+                listToDo.showList();
+            }
+            else {
+                cout << "You don't have any work to do!!!\n";
+                system("pause");
+            }
         }
         switch (choice) {
         case 1:
-            listToDo.showList();
+            if (listToDo.getSize() != 0) {
+                listToDo.showList();
+            }
+            else {
+                cout << "You don't have any work to do!!!\n";
+                system("pause");
+            }
             break;
+
         case 2:
             cout << "Enter the work you to do: ";
             getline(cin, temp);
             listToDo.addToDo(temp);
             break;
+
         case 3:
-            cout << "Enter the work you've done: ";
-            getline(cin, temp);
-            listToDo.doneToDo(temp);
+            if (listToDo.getSize() != 0) {
+                cout << "Enter index of the work you've done: ";
+                getline(cin, temp);
+                buffer = stoi(temp);
+                listToDo.doneToDo(buffer);
+            }
+            else {
+                cout << "You don't have any work to do!!!\n";
+                system("pause");
+            }
             break;
+
         case 4:
-            cout << "Enter the work you want ignore: ";
-            getline(cin, temp);
-            listToDo.deleteToDo(temp);
+            if (listToDo.getSize() != 0) {
+                cout << "Enter index of the work you want ignore: ";
+                getline(cin, temp);
+                buffer = stoi(temp);
+                listToDo.deleteToDo(buffer);
+            }
+            else {
+                cout << "You don't have any work to do!!!\n";
+                system("pause");
+            }
             break;
+
         case 5:
             return 0;
             break;
+
         default:
             cout << "\x1B[2J\x1B[H";
             cout << "Your selection is not valid, Please choose again!\n";
