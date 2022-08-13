@@ -1,3 +1,5 @@
-﻿  Proj_TodoList.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(1094,5): error MSB6006: "link.exe" exited with code 1168.
-LINK : fatal error LNK1168: cannot open C:\Users\trung\source\repos\Proj_ToDoList\x64\Debug\Proj_TodoList.exe for writing
+﻿  List.cpp
+C:\Users\trung\source\repos\Proj_ToDoList\Proj_TodoList\List.cpp(84,26): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  Proj_TodoList.cpp
+  Generating Code...
+  Proj_TodoList.vcxproj -> C:\Users\trung\source\repos\Proj_ToDoList\x64\Debug\Proj_TodoList.exe

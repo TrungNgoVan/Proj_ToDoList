@@ -11,6 +11,10 @@ List::List(vector<string> listToDo) {
 	this->data = listToDo;
 }
 
+List::~List() {
+	// Do nothing
+}
+
 //Getter - Setter
 void List::setData(vector<string> list) {
 	this->data = list;
@@ -46,7 +50,7 @@ void List::showList() {
 }
 
 void List::addToDo(string toDo) {
-	this->data.push_back(toDo);
+	this->data.push_back(toDo);		
 	this->check.push_back(false);
 }
 

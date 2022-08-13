@@ -12,6 +12,7 @@ private:// Attibutes
 public: // Constructor - Destructor
 	List();
 	List(vector<string>);
+	~List();
 
 public: // Getter - Setter
 	void setData(vector<string>);
