@@ -2,6 +2,7 @@
 #include "List.h"
 
 using namespace std;
+HANDLE hConsole;
 //Constructor - Destructor
 List::List() {
 	this->data = {};
@@ -34,16 +35,28 @@ vector<bool> List::getCheck() {
 
 //Method
 void List::init() {
-	cout << "To do list by nvtrung" << endl;
+	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 }
 
 void List::showList() {
 	cout << "\x1B[2J\x1B[H";
 	cout << "=== TO DO LIST ===\n\n";
-	for (int i = 0; i < this->getSize() ; i++) {
+	/*for (int i = 0; i < this->getSize() ; i++) {
 		cout << i + 1 << ": " << this->data[i];
 		if (this->check[i]) cout << setw(15) << " (Done)\n";
 		else cout << "\n";
+	}*/
+	for (int i = 0; i < this->getSize(); i++) {
+		if (this->check[i]) {
+			SetConsoleTextAttribute(hConsole, 10);
+			cout << i + 1 << ": " << this->data[i];
+		}
+		else {
+			SetConsoleTextAttribute(hConsole, 15);
+			cout << i + 1 << ": " << this->data[i];
+		}
+    SetConsoleTextAttribute(hConsole, 15);
+		cout << "\n";
 	}
 	cout << "\n";
 	system("pause");

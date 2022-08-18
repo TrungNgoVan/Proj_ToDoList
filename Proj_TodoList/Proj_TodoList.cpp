@@ -5,6 +5,7 @@ using namespace std;
 
 int main() {
 	List listToDo;
+    listToDo.init();
     int choice, buffer;
     string temp;
     do {
